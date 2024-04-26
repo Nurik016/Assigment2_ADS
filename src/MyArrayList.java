@@ -9,6 +9,20 @@ public class MyArrayList<T> implements MyList<T> {
         size = 0;
     }
 
+
+    private void increaseList() {
+        T[] newArr = (T[]) new Object[arr.length * 2];
+        if (size >= 0) System.arraycopy(arr, 0, newArr, 0, size);
+        arr = newArr;
+    }
+
+
+    private void checker(int index){
+        if (index < 0 || index > size)
+            throw new IndexOutOfBoundsException("index goes outside the list");
+    }
+
+
     @Override
     public void add(T item) {
         if (size >= arr.length) {
@@ -17,37 +31,34 @@ public class MyArrayList<T> implements MyList<T> {
         arr[size++] = item;
     }
 
-    private void increaseList() {
-        T[] newArr = (T[]) new Object[arr.length * 2];
-        for (int i = 0; i < size; i++) {
-            newArr[i] = arr[i];
-        }
-        arr = newArr;
-    }
 
     @Override
     public void set(int index, T item) {
-        checker(index);
-        arr[index]=item;
+        try {
+            checker(index);
+            arr[index]=item;
+        }catch (Exception e){
+            System.out.println("An error occurred in(set) : " + e.getMessage());
+        }
     }
 
     @Override
     public void add(int index, T item) {
-        if (size >= arr.length) {
-            increaseList();
+        try {
+            if (size >= arr.length) {
+                increaseList();
+            }
+            checker(index);
+            for (int i = size; i > index; i--) {
+                arr[i] = arr[i - 1];
+            }
+            arr[index] = item;
+            size++;
+        }catch (Exception e){
+            System.out.println("An error occurred in(add) : " + e.getMessage());
         }
-        checker(index);
-        for (int i = size; i > index; i--) {
-            arr[i] = arr[i - 1];
-        }
-        arr[index] = item;
-        size++;
     }
 
-    public void checker(int index){
-        if (index < 0 || index >= size)
-            throw new IndexOutOfBoundsException("index goes outside the list");
-    }
 
     @Override
     public void addFirst(T item) {
@@ -69,10 +80,16 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public T get(int index) {
-        checker(index);
-        return arr[index];
+        try {
+            checker(index);
+            return arr[index];
+        }catch (Exception e){
+            System.out.println("An error occurred in(get) : " + e.getMessage());
+            return null;
+        }
     }
 
+    //teachet said that its a wrong code
     @Override
     public T getFirst() {
         if (size == 0) {
@@ -91,11 +108,15 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void remove(int index) {
-        checker(index);
-        for (int i = index + 1; i < size; i++) {
-            arr[i-1] = arr[i];
+        try {
+            checker(index);
+            for (int i = index + 1; i < size; i++) {
+                arr[i-1] = arr[i];
+            }
+            size--;
+        }catch (Exception e){
+            System.out.println("An error occurred in(remove) : " + e.getMessage());
         }
-        size--;
     }
 
     @Override
