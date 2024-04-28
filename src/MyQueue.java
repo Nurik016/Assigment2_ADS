@@ -1,14 +1,14 @@
-public class MyQueue {
-    private Node head;
-    private Node tail;
+public class MyQueue<T> {
+    private Node<T> head;
+    private Node<T> tail;
 
     public MyQueue() {
         head = null;
         tail = null;
     }
 
-    public void enqueue(Object obj) {
-        Node newNode = new Node(obj);
+    public void enqueue(T obj) {
+        Node<T> newNode = new Node<>(obj);
         if (isEmpty()) {
             head = newNode;
             tail = newNode;
@@ -18,11 +18,11 @@ public class MyQueue {
         }
     }
 
-    public Object dequeue() {
+    public T dequeue() {
         if (isEmpty()) {
             return null;
         }
-        Object data = head.data;
+        T data = head.data;
         head = head.next;
         if (head == null) {
             tail = null;
@@ -39,18 +39,18 @@ public class MyQueue {
         tail = null;
     }
 
-    public Object front() {
+    public T front() {
         if (isEmpty()) {
             return null;
         }
         return head.data;
     }
 
-    private static class Node {
-        Object data;
-        Node next;
+    private static class Node<T> {
+        T data;
+        Node<T> next;
 
-        Node(Object data) {
+        Node(T data) {
             this.data = data;
             this.next = null;
         }

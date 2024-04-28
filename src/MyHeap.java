@@ -1,10 +1,10 @@
-public class MyHeap {
-    private Object[] array;
+public class MyHeap<T extends Comparable<T>> {
+    private T[] array;
     private int size;
     private static final int DEFAULT_CAPACITY = 10;
 
     public MyHeap() {
-        array = new Object[DEFAULT_CAPACITY];
+        array = (T[]) new Comparable[DEFAULT_CAPACITY];
         size = 0;
     }
 
@@ -16,18 +16,18 @@ public class MyHeap {
         return size;
     }
 
-    public Object peek() {
+    public T peek() {
         if (isEmpty()) {
             throw new IllegalStateException("Heap is empty");
         }
         return array[0];
     }
 
-    public Object extractMin() {
+    public T extractMin() {
         if (isEmpty()) {
             throw new IllegalStateException("Heap is empty");
         }
-        Object min = array[0];
+        T min = array[0];
         array[0] = array[size - 1];
         array[size - 1] = null;
         size--;
@@ -35,7 +35,7 @@ public class MyHeap {
         return min;
     }
 
-    public void insert(Object o) {
+    public void insert(T o) {
         if (size == array.length) {
             resizeArray();
         }
@@ -45,7 +45,7 @@ public class MyHeap {
 
     private void heapifyUp() {
         int index = size - 1;
-        while (hasParent(index) && ((Comparable<Object>) array[index]).compareTo(array[parentIndex(index)]) < 0) {
+        while (hasParent(index) && array[index].compareTo(array[parentIndex(index)]) < 0) {
             swap(index, parentIndex(index));
             index = parentIndex(index);
         }
@@ -55,10 +55,10 @@ public class MyHeap {
         int index = 0;
         while (hasLeftChild(index)) {
             int smallerChildIndex = leftChildIndex(index);
-            if (hasRightChild(index) && ((Comparable<Object>) array[rightChildIndex(index)]).compareTo(array[smallerChildIndex]) < 0) {
+            if (hasRightChild(index) && array[rightChildIndex(index)].compareTo(array[smallerChildIndex]) < 0) {
                 smallerChildIndex = rightChildIndex(index);
             }
-            if (((Comparable<Object>) array[index]).compareTo(array[smallerChildIndex]) < 0) {
+            if (array[index].compareTo(array[smallerChildIndex]) < 0) {
                 break;
             } else {
                 swap(index, smallerChildIndex);
@@ -92,18 +92,21 @@ public class MyHeap {
     }
 
     private void swap(int i, int j) {
-        Object temp = array[i];
+        T temp = array[i];
         array[i] = array[j];
         array[j] = temp;
     }
 
     private void resizeArray() {
-        Object[] newArray = new Object[array.length * 2];
-        System.arraycopy(array, 0, newArray, 0, size);
+        int newCapacity = array.length * 2;
+        T[] newArray = (T[]) new Comparable[newCapacity];
+        for (int i = 0; i < size; i++) {
+            newArray[i] = array[i];
+        }
         array = newArray;
     }
 
-    @Override
+
     public String toString() {
         StringBuilder sb = new StringBuilder("heap: [");
         for (int i = 0; i < size; i++) {
