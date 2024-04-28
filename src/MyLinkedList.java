@@ -177,27 +177,27 @@ public class MyLinkedList<T> implements MyList<T>{
 
     @Override
     public void sort() {
-//        if (head == null || head.next == null) {
-//            return;
-//        }
-//
-//        boolean swapped;
-//        do {
-//            swapped = false;
-//            Node<T> current = head;
-//            Node<T> previous = null;
-//
-//            while (current.next != null) {
-//                if (((Comparable<T>) current.data).compareTo(current.next.data) > 0) {
-//                    T temp = current.data;
-//                    current.data = current.next.data;
-//                    current.next.data = temp;
-//                    swapped = true;
-//                }
-//                previous = current;
-//                current = current.next;
-//            }
-//        } while (swapped);
+        if (head == null || head.next == null) {
+            return;
+        }
+
+        boolean swapped;
+        do {
+            swapped = false;
+            Node<T> current = head;
+            Node<T> previous = null;
+
+            while (current.next != null) {
+                if (((Comparable<T>) current.data).compareTo(current.next.data) > 0) {
+                    T temp = current.data;
+                    current.data = current.next.data;
+                    current.next.data = temp;
+                    swapped = true;
+                }
+                previous = current;
+                current = current.next;
+            }
+        } while (swapped);
     }
 
     @Override

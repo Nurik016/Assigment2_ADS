@@ -85,10 +85,10 @@ public class Main {
         MyLinkedList myLinkedList = new MyLinkedList();
 
         myLinkedList.add(1);
-        myLinkedList.add(2);
-        myLinkedList.add(3);
-        myLinkedList.add(4);
+        myLinkedList.add(0);
         myLinkedList.add(5);
+        myLinkedList.add(4);
+        myLinkedList.add(18);
 
 
         System.out.print("Initial linked list: ");
@@ -165,6 +165,11 @@ public class Main {
         System.out.println();
 
 
+        myLinkedList.sort();
+        printLinkedList(myLinkedList);
+        System.out.println();
+
+
         Object[] array = myLinkedList.toArray();
         System.out.print("Linked list converted to array: ");
         for (Object element : array) {
@@ -177,6 +182,31 @@ public class Main {
         System.out.print("After clearing the linked list:");
         printLinkedList(myLinkedList);
         System.out.println();
+
+        System.out.println("-------------------------------------------------------");
+        System.out.println("-------------------------------------------------------");
+        System.out.println("-------------------------------------------------------");
+
+        MyQueue myQueue = new MyQueue();
+
+        myQueue.enqueue(1);
+        myQueue.enqueue(2);
+        myQueue.enqueue(3);
+        myQueue.enqueue("Four");
+        myQueue.enqueue(5.0);
+
+        System.out.println("Dequeued element: " + myQueue.dequeue());
+        System.out.println("Dequeued element: " + myQueue.dequeue());
+        System.out.println();
+
+        System.out.println("Is the queue empty:  " + myQueue.isEmpty());
+        System.out.println();
+
+        System.out.println("Front element of the queue: " + myQueue.front());
+        myQueue.clear();
+        System.out.println();
+
+        System.out.println("Is the queue empty after clearing: " + myQueue.isEmpty());
     }
 
 
