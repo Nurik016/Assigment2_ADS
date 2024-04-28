@@ -98,25 +98,25 @@ public class Main {
 
         myLinkedList.set(2, 10);
         System.out.println();
-        System.out.println("After setting element at index 2 to 10:");
+        System.out.println("setting element at index 2 to 10:");
         printLinkedList(myLinkedList);
         alter();
 
 
         myLinkedList.add(3, 20);
-        System.out.println("After adding element 20 at index 3:");
+        System.out.println("adding element 20 at index 3:");
         printLinkedList(myLinkedList);
         alter();
 
 
         myLinkedList.addFirst(0);
-        System.out.println("After adding element 0 at the first position:");
+        System.out.println("adding element 0 at the first position:");
         printLinkedList(myLinkedList);
         alter();
 
 
         myLinkedList.addLast(100);
-        System.out.println("After adding element 100 at the last position:");
+        System.out.println("adding element 100 at the last position:");
         printLinkedList(myLinkedList);
         alter();
 
@@ -130,25 +130,25 @@ public class Main {
 
 
         myLinkedList.remove(3);
-        System.out.println("After removing the element at index 3:");
+        System.out.println("removing the element at index 3:");
         printLinkedList(myLinkedList);
         alter();
 
 
         myLinkedList.removeFirst();
-        System.out.println("After removing the first element:");
+        System.out.println("removing the first element:");
         printLinkedList(myLinkedList);
         alter();
 
 
         myLinkedList.removeLast();
-        System.out.println("After removing the last element:");
+        System.out.println("removing the last element:");
         printLinkedList(myLinkedList);
         alter();
 
 
         myLinkedList.sort();
-        System.out.println("After sorting the linked list:");
+        System.out.println("sorting:");
         printLinkedList(myLinkedList);
         alter();
 
@@ -179,7 +179,7 @@ public class Main {
 
 
         myLinkedList.clear();
-        System.out.print("After clearing the linked list:");
+        System.out.print("After clearing:");
         printLinkedList(myLinkedList);
         System.out.println();
 
@@ -199,14 +199,14 @@ public class Main {
         System.out.println("Dequeued element: " + myQueue.dequeue());
         System.out.println();
 
-        System.out.println("Is the queue empty:  " + myQueue.isEmpty());
+        System.out.println("empty:  " + myQueue.isEmpty());
         System.out.println();
 
-        System.out.println("Front element of the queue: " + myQueue.front());
+        System.out.println("Front element: " + myQueue.front());
         myQueue.clear();
         System.out.println();
 
-        System.out.println("Is the queue empty after clearing: " + myQueue.isEmpty());
+        System.out.println("after clearing: " + myQueue.isEmpty());
 
         System.out.println("-------------------------------------------------------");
         System.out.println("-------------------------------------------------------");
@@ -214,29 +214,29 @@ public class Main {
 
         MyStack stack = new MyStack();
 
-        System.out.println("Is the stack empty: " + stack.isEmpty());
+        System.out.println("stack: " + stack.isEmpty());
 
         stack.push(1);
         stack.push("Two");
         stack.push(3.0);
 
-        System.out.println("Stack after pushing elements: " + stack);
+        System.out.println("Stack: " + stack);
         System.out.println();
 
-        System.out.println("Size of the stack: " + stack.getSize());
+        System.out.println("Size: " + stack.getSize());
         System.out.println();
 
-        System.out.println("Top element of the stack: " + stack.peek());
+        System.out.println("Top element: " + stack.peek());
         System.out.println();
 
         System.out.println("Popped element: " + stack.pop());
         System.out.println("Popped element: " + stack.pop());
         System.out.println();
 
-        System.out.println("Stack after popping elements: " + stack);
+        System.out.println("popping elements: " + stack);
         System.out.println();
 
-        System.out.println("Is the stack empty? " + stack.isEmpty());
+        System.out.println("empty: " + stack.isEmpty());
 
 
         System.out.println("-------------------------------------------------------");
@@ -246,7 +246,7 @@ public class Main {
 
         MyHeap heap = new MyHeap();
 
-        System.out.println("Is the heap empty? " + heap.isEmpty());
+        System.out.println("heap:  " + heap.isEmpty());
 
         heap.insert(5);
         heap.insert(3);
@@ -254,22 +254,22 @@ public class Main {
         heap.insert(1);
         heap.insert(6);
 
-        System.out.println("Heap after inserting elements: " + heap);
+        System.out.println("inserting elements: " + heap);
         System.out.println();
 
-        System.out.println("Size of the heap: " + heap.getSize());
+        System.out.println("Size: " + heap.getSize());
         System.out.println();
 
-        System.out.println("Minimum element of the heap: " + heap.peek());
+        System.out.println("Minimum element: " + heap.peek());
         System.out.println();
 
         System.out.println("Extracted minimum element: " + heap.extractMin());
         System.out.println();
 
-        System.out.println("Heap after extraction: " + heap);
+        System.out.println("extraction: " + heap);
         System.out.println();
 
-        System.out.println("Is the heap empty: " + heap.isEmpty());
+        System.out.println("empty: " + heap.isEmpty());
 
     }
 
