@@ -238,8 +238,40 @@ public class Main {
 
         System.out.println("Is the stack empty? " + stack.isEmpty());
 
-    }
 
+        System.out.println("-------------------------------------------------------");
+        System.out.println("-------------------------------------------------------");
+        System.out.println("-------------------------------------------------------");
+
+
+        MyHeap heap = new MyHeap();
+
+        System.out.println("Is the heap empty? " + heap.isEmpty());
+
+        heap.insert(5);
+        heap.insert(3);
+        heap.insert(8);
+        heap.insert(1);
+        heap.insert(6);
+
+        System.out.println("Heap after inserting elements: " + heap);
+        System.out.println();
+
+        System.out.println("Size of the heap: " + heap.getSize());
+        System.out.println();
+
+        System.out.println("Minimum element of the heap: " + heap.peek());
+        System.out.println();
+
+        System.out.println("Extracted minimum element: " + heap.extractMin());
+        System.out.println();
+
+        System.out.println("Heap after extraction: " + heap);
+        System.out.println();
+
+        System.out.println("Is the heap empty: " + heap.isEmpty());
+
+    }
 
     private static void printArrayList(MyArrayList list) {
         for (int i = 0; i < list.size(); i++) {
