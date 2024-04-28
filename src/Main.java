@@ -1,8 +1,7 @@
 public class Main {
 
-    Methods methods = new Methods();
-
     public static void main(String[] args) {
+
         MyArrayList myArrayList = new MyArrayList<>();
 
         myArrayList.add(1);
@@ -13,21 +12,21 @@ public class Main {
 
 
         System.out.print("List contains: ");
-        Methods.printArrayList(myArrayList);
+        printArrayList(myArrayList);
         System.out.println();
 
 
         System.out.print(String.format("the 4 index was: %s .", myArrayList.get(4)));
         myArrayList.set(10, "CATCH");
         System.out.println(String.format("The 4 index now: %s", myArrayList.get(4)));
-        Methods.printArrayList(myArrayList);
+        printArrayList(myArrayList);
         System.out.println();
 
 
         System.out.print(String.format("the 1 index was: %s .", myArrayList.get(1)));
         myArrayList.set(1, 10);
         System.out.println(String.format("the 1 index now: %s", myArrayList.get(1)));
-        Methods.printArrayList(myArrayList);
+        printArrayList(myArrayList);
         System.out.println();
 
 
@@ -35,7 +34,7 @@ public class Main {
         myArrayList.add(3, 65);
         System.out.print(String.format("the 3 index now: %s .", myArrayList.get(3)));
         System.out.println(String.format("the 4 index now: %s", myArrayList.get(4)));
-        Methods.printArrayList(myArrayList);
+        printArrayList(myArrayList);
         System.out.println();
 
 
@@ -43,17 +42,39 @@ public class Main {
         myArrayList.addFirst(123);
         System.out.print(String.format("the 0 index now: %s .", myArrayList.get(0)));
         System.out.println(String.format("the 1 index now: %s", myArrayList.get(1)));
-        Methods.printArrayList(myArrayList);
+        printArrayList(myArrayList);
         System.out.println();
 
 
         System.out.println(String.format("4 index is ", myArrayList.get(4)));
         System.out.println(String.format("0 index is ", myArrayList.getFirst()));
         System.out.println(String.format("last index is ", myArrayList.getLast()));
+        alter();
 
+
+        myArrayList.remove(5);
+        printArrayList(myArrayList);
+        alter();
+
+
+        myArrayList.removeFirst();
+        myArrayList.removeLast();
+        printArrayList(myArrayList);
+        alter();
+
+
+        myArrayList.indexOf(5);
+        myArrayList.lastIndexOf(3);
+        myArrayList.exists(1);
+        alter();
+
+
+        myArrayList.clear();
+        printArrayList(myArrayList);
+        alter();
 
         System.out.print("List contains: ");
-        Methods.printArrayList((myArrayList));
+        printArrayList((myArrayList));
 
 
         System.out.println("-------------------------------------------------------");
@@ -71,33 +92,33 @@ public class Main {
 
 
         System.out.print("Initial linked list: ");
-        Methods.printLinkedList(myLinkedList);
+        printLinkedList(myLinkedList);
         System.out.println();
 
 
         myLinkedList.set(2, 10);
         System.out.println();
         System.out.println("After setting element at index 2 to 10:");
-        Methods.printLinkedList(myLinkedList);
-        Methods.alter();
+        printLinkedList(myLinkedList);
+        alter();
 
 
         myLinkedList.add(3, 20);
         System.out.println("After adding element 20 at index 3:");
-        Methods.printLinkedList(myLinkedList);
-        Methods.alter();
+        printLinkedList(myLinkedList);
+        alter();
 
 
         myLinkedList.addFirst(0);
         System.out.println("After adding element 0 at the first position:");
-        Methods.printLinkedList(myLinkedList);
-        Methods.alter();
+        printLinkedList(myLinkedList);
+        alter();
 
 
         myLinkedList.addLast(100);
         System.out.println("After adding element 100 at the last position:");
-        Methods.printLinkedList(myLinkedList);
-        Methods.alter();
+        printLinkedList(myLinkedList);
+        alter();
 
 
         System.out.println("First element: " + myLinkedList.getFirst());
@@ -110,26 +131,26 @@ public class Main {
 
         myLinkedList.remove(3);
         System.out.println("After removing the element at index 3:");
-        Methods.printLinkedList(myLinkedList);
-        Methods.alter();
+        printLinkedList(myLinkedList);
+        alter();
 
 
         myLinkedList.removeFirst();
         System.out.println("After removing the first element:");
-        Methods.printLinkedList(myLinkedList);
-        Methods.alter();
+        printLinkedList(myLinkedList);
+        alter();
 
 
         myLinkedList.removeLast();
         System.out.println("After removing the last element:");
-        Methods.printLinkedList(myLinkedList);
-        Methods.alter();
+        printLinkedList(myLinkedList);
+        alter();
 
 
         myLinkedList.sort();
         System.out.println("After sorting the linked list:");
-        Methods.printLinkedList(myLinkedList);
-        Methods.alter();
+        printLinkedList(myLinkedList);
+        alter();
 
 
         System.out.println("Index of element 10: " + myLinkedList.indexOf(10));
@@ -149,14 +170,32 @@ public class Main {
         for (Object element : array) {
             System.out.print(element + " | ");
         }
-        Methods.alter();
+        alter();
 
 
         myLinkedList.clear();
         System.out.print("After clearing the linked list:");
-        Methods.printLinkedList(myLinkedList);
+        printLinkedList(myLinkedList);
         System.out.println();
     }
 
 
+    private static void printArrayList(MyArrayList list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + " | ");
+        }
+        System.out.println();
+    }
+
+    private static void printLinkedList(MyLinkedList list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + " | ");
+        }
+        System.out.println();
+    }
+
+    public static void alter() {
+        System.out.println();
+        System.out.println();
+    }
 }

@@ -14,6 +14,12 @@ public class MyLinkedList<T> implements MyList<T>{
             throw new IndexOutOfBoundsException("index goes outside the list");
     }
 
+    private void empty(){
+        if (head == null) {
+            throw new IndexOutOfBoundsException("List is empty");
+        }
+    }
+
 
     @Override
     public void add(T item) {
@@ -35,6 +41,10 @@ public class MyLinkedList<T> implements MyList<T>{
     public void set(int index, T item) {
         try {
             checker(index);
+            if(index==size){
+                add(item);
+                return;
+            }
             Node<T> current = head;
             for (int i = 0; i < index; i++) {
                 current = current.next;
@@ -110,17 +120,13 @@ public class MyLinkedList<T> implements MyList<T>{
 
     @Override
     public T getFirst() {
-        if (head == null) {
-            throw new IndexOutOfBoundsException("List is empty");
-        }
+        empty();
         return head.data;
     }
 
     @Override
     public T getLast() {
-        if (head == null) {
-            throw new IndexOutOfBoundsException("List is empty");
-        }
+        empty();
         Node<T> current = head;
         while (current.next != null) {
             current = current.next;
@@ -149,18 +155,14 @@ public class MyLinkedList<T> implements MyList<T>{
 
     @Override
     public void removeFirst() {
-        if (head == null) {
-            throw new IndexOutOfBoundsException("List is empty");
-        }
+        empty();
         head = head.next;
         size--;
     }
 
     @Override
     public void removeLast() {
-        if (head == null) {
-            throw new IndexOutOfBoundsException("List is empty");
-        }
+        empty();
         if (head.next == null) {
             head = null;
         } else {
@@ -175,27 +177,27 @@ public class MyLinkedList<T> implements MyList<T>{
 
     @Override
     public void sort() {
-        if (head == null || head.next == null) {
-            return;
-        }
-
-        boolean swapped;
-        do {
-            swapped = false;
-            Node<T> current = head;
-            Node<T> previous = null;
-
-            while (current.next != null) {
-                if (((Comparable<T>) current.data).compareTo(current.next.data) > 0) {
-                    T temp = current.data;
-                    current.data = current.next.data;
-                    current.next.data = temp;
-                    swapped = true;
-                }
-                previous = current;
-                current = current.next;
-            }
-        } while (swapped);
+//        if (head == null || head.next == null) {
+//            return;
+//        }
+//
+//        boolean swapped;
+//        do {
+//            swapped = false;
+//            Node<T> current = head;
+//            Node<T> previous = null;
+//
+//            while (current.next != null) {
+//                if (((Comparable<T>) current.data).compareTo(current.next.data) > 0) {
+//                    T temp = current.data;
+//                    current.data = current.next.data;
+//                    current.next.data = temp;
+//                    swapped = true;
+//                }
+//                previous = current;
+//                current = current.next;
+//            }
+//        } while (swapped);
     }
 
     @Override

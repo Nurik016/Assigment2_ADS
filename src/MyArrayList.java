@@ -139,32 +139,56 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void sort() {
-
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
+                // Swap if the current element is greater than the next element
+                if (((Comparable<T>) arr[j]).compareTo(arr[j + 1]) > 0) {
+                    T temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
     }
 
     @Override
     public int indexOf(Object object) {
-        return 0;
+        for (int i = 0; i < size; i++) {
+            if (object.equals(arr[i])) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
     public int lastIndexOf(Object object) {
-        return 0;
+        for (int i = size - 1; i >= 0; i--) {
+            if (object.equals(arr[i])) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
     public boolean exists(Object object) {
-        return false;
+        return indexOf(object) >= 0;
     }
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        Object[] newArray = new Object[size];
+        System.arraycopy(arr, 0, newArray, 0, size);
+        return newArray;
     }
 
     @Override
     public void clear() {
-
+        for (int i = 0; i < size; i++) {
+            arr[i] = null;
+        }
+        size = 0;
     }
 
     @Override
