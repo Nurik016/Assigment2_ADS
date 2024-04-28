@@ -207,6 +207,37 @@ public class Main {
         System.out.println();
 
         System.out.println("Is the queue empty after clearing: " + myQueue.isEmpty());
+
+        System.out.println("-------------------------------------------------------");
+        System.out.println("-------------------------------------------------------");
+        System.out.println("-------------------------------------------------------");
+
+        MyStack stack = new MyStack();
+
+        System.out.println("Is the stack empty: " + stack.isEmpty());
+
+        stack.push(1);
+        stack.push("Two");
+        stack.push(3.0);
+
+        System.out.println("Stack after pushing elements: " + stack);
+        System.out.println();
+
+        System.out.println("Size of the stack: " + stack.getSize());
+        System.out.println();
+
+        System.out.println("Top element of the stack: " + stack.peek());
+        System.out.println();
+
+        System.out.println("Popped element: " + stack.pop());
+        System.out.println("Popped element: " + stack.pop());
+        System.out.println();
+
+        System.out.println("Stack after popping elements: " + stack);
+        System.out.println();
+
+        System.out.println("Is the stack empty? " + stack.isEmpty());
+
     }
 
 
