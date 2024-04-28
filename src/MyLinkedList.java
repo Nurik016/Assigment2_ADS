@@ -21,9 +21,8 @@ public class MyLinkedList<T> implements MyList<T>{
     }
 
 
-    @Override
     public void add(T item) {
-        Node<T> newNode = new Node<>(item);
+        Node<T> newNode = Node.createNode(item);
 
         if (head == null) {
             head = newNode;
@@ -59,7 +58,7 @@ public class MyLinkedList<T> implements MyList<T>{
     public void add(int index, T item) {
         try {
             checker(index);
-            Node<T> newNode = new Node<>(item);
+            Node<T> newNode = Node.createNode(item);
 
             if (index == 0) {
                 newNode.next = head;
@@ -80,7 +79,7 @@ public class MyLinkedList<T> implements MyList<T>{
 
     @Override
     public void addFirst(T item) {
-        Node<T> newNode = new Node<>(item);
+        Node<T> newNode = Node.createNode(item);
 
         newNode.next = head;
         head = newNode;
@@ -89,7 +88,7 @@ public class MyLinkedList<T> implements MyList<T>{
 
     @Override
     public void addLast(T item) {
-        Node<T> newNode = new Node<>(item);
+        Node<T> newNode = Node.createNode(item);
 
         if (head == null) {
             head = newNode;
