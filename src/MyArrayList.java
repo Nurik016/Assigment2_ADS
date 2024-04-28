@@ -1,11 +1,11 @@
 
 public class MyArrayList<T> implements MyList<T> {
-
+    private static final int DEFAULT_CAPACITY = 10;
     private T[] arr;
     private int size;
 
     public MyArrayList() {
-        arr = (T[]) new Object[10];
+        arr = (T[]) new Object[DEFAULT_CAPACITY];
         size = 0;
     }
 
